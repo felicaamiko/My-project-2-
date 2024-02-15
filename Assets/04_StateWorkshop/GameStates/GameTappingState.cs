@@ -39,12 +39,12 @@ public class GameTappingState : State
         
         base.Update();
         // tap a head with Q - jump
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetKeyDown(KeyCode.Q) && killswitch)
         {
             Jump();
         }
 
-        if (StateDuration > offset + 4)
+        if (StateDuration > offset + 4 && !killswitch)
         {
             Land();
         }
@@ -64,6 +64,7 @@ public class GameTappingState : State
     void Jump()
     {
         offset = StateDuration;
+        killswitch = false;
         //Debug.Log(offset);
         Debug.Log("jumped");
 
