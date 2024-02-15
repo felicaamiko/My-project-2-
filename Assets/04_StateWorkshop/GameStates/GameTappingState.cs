@@ -21,7 +21,7 @@ public class GameTappingState : State
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("Press Q to tap a head...");
+        Debug.Log("use tilt to move around. tap to jump");
     }
 
     public override void Exit()

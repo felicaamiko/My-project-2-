@@ -17,18 +17,14 @@ public class GameSetupState : State
     {
         base.Enter();
 
-        Debug.Log("|Welcome to Duck, Duck, Goose|");
-        Debug.Log("Goal: Catch the goose!");
-        Debug.Log("Q taps a head : Space catches the goose");
-        Debug.Log("You have limited time to catch the goose, so be quick!");
-        Debug.Log("Don't accidentally catch a duck, or the goose will go free");
+        Debug.Log("Main Menu");
     }
 
     public override void Exit()
     {
         base.Exit();
 
-        Debug.Log("Let the goosing begin!");
+        Debug.Log("move to gameplay arena goober");
         Debug.Log("_______________________________");
     }
 
@@ -42,7 +38,8 @@ public class GameSetupState : State
         base.Update();
         // wait 2 seconds before moving to Tapping state
         // StateDuration returns how long we've been in a state
-        if(StateDuration >= 2)
+        //StateDuration >= 2 was prev condition
+        if (Input.GetKeyDown("space"))
         {
             _stateMachine.ChangeState(_stateMachine.TappingState);
         }
